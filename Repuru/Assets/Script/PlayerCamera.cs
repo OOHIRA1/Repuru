@@ -6,7 +6,7 @@ public class PlayerCamera : MonoBehaviour {
 
     [SerializeField] private Transform player;   //追従対象プレイヤー
 
-    [SerializeField] private float distance = 15.0f; //追従対象プレイヤーから距離
+    [SerializeField] private float distance = 5.0f; //追従対象プレイヤーから距離
     [SerializeField] private Quaternion vRotation;  //カメラの垂直回転
     [SerializeField] public Quaternion hRotation;   //カメラの水平回転
 
