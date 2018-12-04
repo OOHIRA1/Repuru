@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerContoroller : MonoBehaviour {
     [SerializeField] private Vector3 velocity;          //移動方向
-    [SerializeField] private float movespeed = 5.0f;    //移動速度
-    [SerializeField] private float applySpeed = 0.2f;
+    [SerializeField] private float moveSpeed = 5.0f;    //移動速度
+    [SerializeField] private float applySpeed = 0.2f;   //振り向きの速度
 
 
 	// Use this for initialization
@@ -15,9 +15,9 @@ public class PlayerContoroller : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //velocityを
+        //velociyを増やしたり減らしたして移動させる
         velocity = Vector3.zero;
-
+        
         if (Input.GetKey(KeyCode.W)) {
             velocity.z += 1;
         }
@@ -33,10 +33,14 @@ public class PlayerContoroller : MonoBehaviour {
         if (Input.GetKey(KeyCode.D)) {
             velocity.x += 1;
         }
+        //-----------------------------------------------
 
-        velocity = velocity.normalized * movespeed * Time.deltaTime;
+        //移動スピードを現実の１秒に------------------------------------------
+        velocity = velocity.normalized * moveSpeed * Time.deltaTime;
+        //--------------------------------------------------------------------
 
 
+        //velocityが0になったら座標を更新させる----------------------------------------
         if (velocity.magnitude > 0) {
 
             transform.rotation = Quaternion.Slerp(transform.rotation,
@@ -44,5 +48,6 @@ public class PlayerContoroller : MonoBehaviour {
                                                   applySpeed);
             transform.position += velocity;
         }
+        //----------------------------------------------------------------------------
     }
 }
