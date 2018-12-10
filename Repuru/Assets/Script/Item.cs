@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour {
 
-	bool itemHit = false;		//プレイヤーがアイテムに当たったかどうか
+	public bool itemHit = false;		//プレイヤーがアイテムに当たったかどうか
 
 	// Use this for initialization
 	void Start () {
