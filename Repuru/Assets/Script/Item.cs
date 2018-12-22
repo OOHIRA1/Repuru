@@ -16,14 +16,14 @@ public class Item : MonoBehaviour {
 		
 	}
 
-	//ゲッターとセッター-----------------------------------------
+	//ゲッターとセッター-------------------------------------------
 	public bool ItemHit{
 		set { itemHit = value; }
         get { return itemHit; }
 	}
-	//-----------------------------------------------------------
+	//----------------------------------------------------------
 
-	//プレイヤーに当たった時の関数-------------------------------
+	//プレイヤーに当たった時の関数-----------------------------------
 	private void OnTriggerEnter(Collider other)	{
 		if(other.gameObject.tag == "Player"){
 			itemHit = true;	
@@ -31,7 +31,7 @@ public class Item : MonoBehaviour {
 	}
 	//-----------------------------------------------------------
 
-	//プレイヤーから離れた時の関数-------------------------------
+	//プレイヤーから離れた時の関数------------------------------------
 	private void OnTriggerExit(Collider other)	{
 		if(other.gameObject.tag == "Player"){ 
 			itemHit = false;
