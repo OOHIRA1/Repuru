@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemUi : MonoBehaviour {
 	[SerializeField]Item[] item = new Item[10];
 	[SerializeField]GameObject itemPickUp = null;           //拾うUI
+    //SerializeField]Image[] ItemUiImage = new Image[2];
 
 	// Use this for initialization
 	void Start () {
@@ -41,13 +42,19 @@ public class ItemUi : MonoBehaviour {
     public void ItemDestroy(){
         for (int i = 0; i < item.Length; i++){
             if (item[i].ItemHit == true){
-                Destroy(item[i].gameObject);
-                item[i] = null;
+                item[i].gameObject.SetActive(false);
             }
         }
     }
     //--------------------------------------------------------------------
 
     //
+    //public void ItemUiDisplay() {
+    //    for (int i = 0; i < item.Length; i++) {
+    //        if (item[i].gameObject.activeInHierachy) {
+
+    //        }
+    //    }
+    //}
 
 }
